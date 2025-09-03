@@ -11,7 +11,7 @@ import { Activity, ActivitySchema } from 'src/activity/activity.schema';
       { name: Activity.name, schema: ActivitySchema },
     ]),
   ],
-  exports: [UserService],
   providers: [UserService],
+  exports: [UserService]
 })
 export class UserModule {}
