@@ -6,14 +6,17 @@ import {
   AddFavoriteActivity,
   RemoveFavoriteActivity,
 } from "../graphql/mutations/favorites/handleFavorites";
+import { Button } from "@mantine/core";
 import { IconHeart, IconHeartFilled } from "@tabler/icons-react";
 import GetFavoriteActivities from "../graphql/queries/activity/getFavoriteActivities";
 
-type Props = {
+type FavoriteButtonProps = {
   activityId: string;
 };
 
-export const FavoriteButton: React.FC<Props> = ({ activityId }) => {
+export const FavoriteButton: React.FC<FavoriteButtonProps> = ({
+  activityId,
+}) => {
   const router = useRouter();
   const { user } = useAuth();
 
@@ -50,7 +53,7 @@ export const FavoriteButton: React.FC<Props> = ({ activityId }) => {
   };
 
   return (
-    <button
+    <Button
       onClick={handleClick}
       style={{
         position: "absolute",
@@ -64,6 +67,6 @@ export const FavoriteButton: React.FC<Props> = ({ activityId }) => {
       aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
     >
       {isFavorite ? <IconHeartFilled color="red" /> : <IconHeart />}
-    </button>
+    </Button>
   );
 };

@@ -72,7 +72,6 @@ export class BaseAppModule {}
     BaseAppModule,
     MongooseModule.forRootAsync({
       useFactory: () => {
-        console.log(process.env.MONGO_URI);
         return { uri: process.env.MONGO_URI };
       },
     }),
